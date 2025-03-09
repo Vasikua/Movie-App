@@ -1,16 +1,29 @@
 import "./Search.css";
 
-const Search = ({ errorMessage, searchTerm, setSearchTerm }) => {
+const Search = ({
+  errorMessage,
+  setSearchTerm,
+  currentSearchTerm,
+  setCurrentSearchTerm,
+}) => {
+  const handleSubmit = (e) => {
+    if (e.key === "Enter") {
+      setSearchTerm(currentSearchTerm);
+      setCurrentSearchTerm("");
+    }
+  };
+
   return (
     <div className="search">
       <img src="../../img/search.svg" alt="search" />
       <input
         type="text"
-        value={searchTerm}
+        value={currentSearchTerm}
         placeholder=""
         onChange={(e) => {
-          setSearchTerm(e.target.value);
+          setCurrentSearchTerm(e.target.value);
         }}
+        onKeyDown={handleSubmit}
       />
       <section className="all-movies">
         <h2 className="mt-[40px]">All Movies</h2>

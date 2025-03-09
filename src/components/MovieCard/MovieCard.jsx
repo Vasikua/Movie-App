@@ -13,6 +13,23 @@ const MovieCard = ({
         }
         alt={title}
       />
+      <div className="mt-4">
+        <h3>{title}</h3>
+        <div className="comntent flex flex-row gap-1.0">
+          <div className="rating ">
+            <img src="star.svg" alt="Star Icon" />
+            <p>{vote_average ? vote_average.toFixed(1) : "N/A"}</p>
+          </div>
+          <span className="text-black">○</span>
+          <p className="lanng text-amber-50">
+            {original_language ? original_language : null}
+          </p>
+          <span className="text-black">○</span>
+          <p className="year text-amber-40">
+            {release_date ? release_date.split("-")[0] : "N/A"}
+          </p>
+        </div>
+      </div>
     </div>
   );
 };
